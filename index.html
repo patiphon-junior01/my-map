@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My map</title>
+  <link rel="icon" href="assets/img/logo-icon.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/icon.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- ส่วนของเชื่อมต่อ Leaflet Routing Machine ทั้ง version เก่าเเละใหม่ -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://unpkg.com/leaflet.locatecontrol@0.72.0/dist/L.Control.Locate.min.js"></script>
+
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script> -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/icon-fontawesome.js"></script>
+</head>
+
+<body>
+  <div id="map" style="width: 100vw; min-height: 100vh;">
+  </div>
+  <div class="my_location" onclick=get_localtion()>
+    <i class="fas fa-street-view"></i>
+  </div>
+  <div class="my_location_poin" onclick=my_starting_point()>
+    <i class="fas fa-location-arrow"></i>
+  </div>
+  <div class="search_location_user" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fas fa-users"></i>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" method="post" id="search_member_map">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel"><i class="fas fa-map-marked-alt"></i> Search map
+            with
+            members</h1>
+          <button type="button" class="btn-close" id="close_modal" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <label for="">Start</label>
+              <input type="text" name="" id="input_start" list="list_members" class="form-control" placeholder="Start"
+                required>
+            </div>
+            <div class="col">
+              <label for="">End</label>
+              <input type="text" name="" id="input_end" list="list_members" class="form-control" placeholder="End map"
+                required>
+            </div>
+            <datalist id="list_members">
+            </datalist>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info px-5">
+            <i class="fas fa-search-location"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="assets/js/my_map.js"></script>
+</body>
+</html>
